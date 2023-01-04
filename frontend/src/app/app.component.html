@@ -1,0 +1,73 @@
+<div class="home">
+  <div class="home__title">
+    <span>URL Shortener App</span>
+  </div>
+  <div class="home__originalurl">
+    <div class="p-inputgroup">
+        <button type="button" pButton pRipple (click)="refresh()">Refresh</button>
+        <input type="text" pInputText placeholder="กรุณาใส่ url" [(ngModel)]="originalUrl" >   
+        <button 
+          type="button" 
+          pButton 
+          pRipple 
+          styleClass="p-button-warn" 
+          (click)="makeShortenUrl()"
+        >Shorten URL</button>      
+    </div>
+  </div>
+  <div class="home__shorturl">
+    <div class="p-inputgroup">
+      <input type="text" pInputText  [(ngModel)]="shortenUrl" >   
+      <button 
+        type="button" 
+        pButton 
+        pRipple 
+        styleClass="p-button-warn" 
+        (click)="copyText()"
+        pTooltip="Copy!"
+        tooltipPosition="right"
+        tooltipEvent="focus"
+        [life]="1000"
+      >COPY</button>      
+  </div>
+  </div>
+  <div class="history" *ngIf="urls">
+    <div class="history__title">History</div>
+      <p-table
+        #table
+        [value]="urls"
+        [rows]="10"
+        styleClass="p-datatable-gridlines"
+        [paginator]="false"
+        [rowHover]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [filterDelay]="0"
+        [autoLayout]="false"
+        [scrollable]="true"
+        style="width: 80rem"
+      >
+        <ng-template pTemplate="colgroup">
+          <colgroup>
+              <col style="width: 40rem;">
+              <col style="width: 10rem;">
+              <col style="width: 10rem;">
+          </colgroup>
+        </ng-template>
+      <ng-template pTemplate="header" let-columns >
+          <tr>
+            <th class="text-center" pSortableColumn="employee_code">originalUrl</th>
+            <th class="text-center" pSortableColumn="first_name">shortUrl</th>
+            <th class="text-center">createAt</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-url expanded="false">
+        <tr class="datatable-row">
+            <td class="text-center" >{{ url.originalUrl }}</td>
+            <td class="text-center" >{{ url.shortUrl}} </td>
+            <td class="text-center" >{{ url.createAt | date }}</td>
+        </tr>
+      </ng-template>
+
+      </p-table>
+  </div>
+</div>
