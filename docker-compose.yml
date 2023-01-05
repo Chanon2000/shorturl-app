@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  frontend:
+    # build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    container_name: frontend
+    volumes:
+      - ./frontend/src:/app/src
+    ports:
+      - '4200:4200'
+      # - '80:80'
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: backend
+    command: "npm run start:dev"
+    ports:
+      - '80:80'
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    restart: always

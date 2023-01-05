@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { ApiService } from './api.service';
 import { urlModel } from './models/urlModel';
+import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent {
 
   constructor(
     private primengConfig: PrimeNGConfig, 
-    private apiService: ApiService
+    private apiService: ApiService,
+    private messageService: MessageService
   ) {
     
   }
@@ -45,7 +47,8 @@ export class AppComponent {
       })
       if (!isSame) this.urls = [ data.url, ...this.urls ]
     }, err => {
-      
+      console.log(err)
+      this.messageService.add({ key:'alertApp', severity:'error', summary: err.error.message });
     })  
   }
 

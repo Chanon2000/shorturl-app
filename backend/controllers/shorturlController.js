@@ -12,7 +12,7 @@ exports.makeShortUrl = async (req, res) => {
         if (isURL(originalUrl) == false) {
             return res.status(400).json({
                 status: 'fail', 
-                message: "Invalid Original Url'",
+                message: "Invalid Url",
                 requestedAt: req.requestTime,
             });
         }
@@ -100,12 +100,6 @@ exports.getAllUrls = async (req, res) => {
 
 function isURL(str) {
     const urlPattern = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-    // var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-    //   '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-    //   '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-    //   '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-    //   '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-    //   '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
     return urlPattern.test(str);
 }
 
