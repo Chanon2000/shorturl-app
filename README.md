@@ -49,3 +49,6 @@ Flow หลักของ App นี้คือ ให้ user สามาร
 
 ##### 3. อธิบาย Linux command นี้ `chmod ugo+r xyz.txt` ว่ามีความหมายว่าอย่างไร ?
 ทำการรันเพื่อให้ permission การ read (อ่าน) ไฟล์ชื่อ `xyz.txt` ให้กับทั้ง user, group, other ซึ่งสามารถเขียนได้อีกแบบคือ `chmod 444 xyz.txt` ซึ่งเป็นการกำหนดโดยใช้ตัวเลข
+
+
+![URL Shortener App image](./frontend/src/assets/home.png)
