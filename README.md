@@ -1,4 +1,4 @@
-## **This App use**
+<!-- ## **This App use**
 - NodeJs + Express + Mongoose
 - Angular + Nginx + PrimeNG (css framework)
 - MongoDB
@@ -51,4 +51,4 @@ Flow หลักของ App นี้คือ ให้ user สามาร
 ทำการรันเพื่อให้ permission การ read (อ่าน) ไฟล์ชื่อ `xyz.txt` ให้กับทั้ง user, group, other ซึ่งสามารถเขียนได้อีกแบบคือ `chmod 444 xyz.txt` ซึ่งเป็นการกำหนดโดยใช้ตัวเลข
 
 
-![URL Shortener App image](./frontend/src/assets/home.png)
+![URL Shortener App image](./frontend/src/assets/home.png) -->
